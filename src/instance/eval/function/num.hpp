@@ -429,7 +429,7 @@ namespace dci::module::ppn::node::rdb::instance::eval::function
     {
         return num::applyImplEq1(args, [](const auto& a1)
         {
-            return exp10(static_cast<double>(a1));
+            return pow(10.0, static_cast<double>(a1));
         });
     }
 

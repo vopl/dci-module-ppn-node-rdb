@@ -46,7 +46,7 @@ TEST(module_ppn_node_rdb, pql_eval_num)
     //num_neg,
     EXPECT_EQ       (-1,    evalToInt<fun::num_neg>(Value{1}));
     EXPECT_DOUBLE_EQ(-1.2,  evalToReal<fun::num_neg>(Value{1.2}));
-    EXPECT_EQ       (-1,    (evalTo<fun::num_neg, long>(Value{1l})));
+    EXPECT_EQ       (-1,    (evalTo<fun::num_neg, int64>(Value{int64{1}})));
 
     //num_add,
     EXPECT_EQ       (220,           evalToInt<fun::num_add>(Value{100}, Value{120}));
@@ -93,7 +93,7 @@ TEST(module_ppn_node_rdb, pql_eval_num)
     EXPECT_DOUBLE_EQ(exp(1.2),      evalToReal<fun::num_exp>(Value{1.2}));
 
     //num_exp10,
-    EXPECT_DOUBLE_EQ(exp10(1.2),    evalToReal<fun::num_exp10>(Value{1.2}));
+    EXPECT_DOUBLE_EQ(pow(10.0, 1.2),    evalToReal<fun::num_exp10>(Value{1.2}));
 
     //num_exp2,
     EXPECT_DOUBLE_EQ(exp2(1.2),     evalToReal<fun::num_exp2>(Value{1.2}));
